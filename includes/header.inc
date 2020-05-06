@@ -31,7 +31,20 @@ print'
 					<li> <a href="#">Десерти</a></li>
 				</ul>
 			</nav>
+';	
+			// Проверка за логнат администратор. Сесиите се генерират при логване от файла login.php
+    		if(!isset($_SESSION['person_type'])){
+				// Ако потребителя не е логнат извеждаме бутон ВХОД
+				print '<span style="padding-left:800px;"><a href="login.php" class="top_menu_a">Вход</a></span>'; 				
+			} else {
+			// Aко е администратор ще има достъп за промяна на данни на животни. 
+			// Извеждме бутони ЖИВОТНИ, НОВО ЖИВОТНО и ИЗХОД
+				if($_SESSION['person_type']==1){	
+					print '<a href="animals_edit.php" class="top_menu_a">Животни</a>
+						   <a href="animal_edit.php" class="top_menu_a">Ново животно</a>';						
+				}
+				print' <span style="padding-left:570px;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
+			}		
 			
-			
-'
+
 ?>
