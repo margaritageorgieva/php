@@ -8,6 +8,7 @@ img{max-width:100%;}
 	text-decoration: none;
 	font-family: arial;
 	
+	
 }
 
 header{
@@ -20,7 +21,6 @@ header{
 }
 div.lenta{
 	width: 100%;
-	height: 200px;
 	background-image: url(images/lenta.jpg);
 	background-size: cover;
 	background-position: center;
@@ -44,7 +44,6 @@ div.lenta img {
 	color: #FFF;
 	margin: auto 20px ;
 	font-size: 28px;
-	border-radius: 2px solid red;
 	list-style-position:inside;	
 
 }
@@ -118,9 +117,10 @@ article:hover{
 
 footer{
 	width: 100%;
-	background-color: rgb(6,11,15);
 	color: #fff;
 	font-size: 15px;
+	
+	background-color: rgb(6,11,15);
 }
 
 footer div{
@@ -164,3 +164,7 @@ footer div{
 	font-weight: lighter;
 }
 
+body{
+	
+	background-color: rgb(6,11,15);
+}

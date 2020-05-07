@@ -24,8 +24,6 @@ print'
 				<ul id="main-nav-ul">
 					<li class="active main-nav-ul-li" > <a href=".">Начало</a></li>
 					
-				</ul>
-			</nav>
 ';	
 			// Проверка за логнат администратор. Сесиите се генерират при логване от файла login.php
     		if(!isset($_SESSION['person_type'])){
@@ -35,11 +33,21 @@ print'
 			// Aко е администратор ще има достъп за промяна на данни на животни. 
 			// Извеждме бутони ЖИВОТНИ, НОВО ЖИВОТНО и ИЗХОД
 				if($_SESSION['person_type']==1){	
-					print '<a href="editProducts.php" class="active main-nav-ul-li">Продукти</a>
-						   <a href="editAproduct.php" class="active main-nav-ul-li">Нов продукт</a>';						
+					print '<li class="main-nav-ul-li"><a href="editProducts.php">Продукти</a></li>
+							<li class="main-nav-ul-li"><a href="editAproduct.php">Нов продукт</a></li>';						
 				}
 				print' <span style="float:right; font-size:14pt; margin-top:-2rem;color:white;  padding-right:1rem;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
-			}		
-			
+			}
+			$result = $mysqli->query("SELECT * FROM food_types");
+			while($row = $result->fetch_assoc()){
+				print'<li class="main-nav-ul-li><a href="animals.php?kid='.$row['food_type_id'].'" 
+					">'.htmlspecialchars(stripslashes($row['type'])).'</a></li>';
+			}
 
+'		
+			</ul>
+		</nav>
+'
+	//do tuk prikluchva header-a
+	
 ?>

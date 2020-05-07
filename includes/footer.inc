@@ -12,7 +12,7 @@ print'
 		<div id="Contact"> 
 			Address	: 15 Karnigradska St.R <br>
 			Phone :	+359 894 420 440	<br>
-			E-mail : Boomburgers@gmail.com 		
+			E-mail : SteakHouse@gmail.com 		
 		</div>																					
 		<div id="social"> 
 			<a href="#"><i class="fab fa-facebook-f"></i></a>
