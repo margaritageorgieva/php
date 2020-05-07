@@ -21,7 +21,7 @@ print'
 				
 		</div>	
 
-		<p>Copyright © 2019 Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</p>					
+		<div id="copyright">	Copyright © 2020 Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</div>						
 	</footer>
 </body>
 </html>'

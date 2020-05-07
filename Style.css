@@ -43,7 +43,7 @@ nav ul li{
 	display: inline-block;
 	color: #FFF;
 	margin: auto 20px ;
-	font-size: 28px;
+	font-size: 20px;
 	border-radius: 2px solid red;
 	list-style-position:inside;	
 
@@ -155,11 +155,10 @@ footer div{
 	transform: scale(1.1);
 	color: #88ff4d;
 }
-footer p{
+footer #copyright{
+	display: block;
+	margin:auto;
+	width: 80%;
 	text-align: center;
-	font-size: 13px;
-	margin-top: 10px;
-	padding-bottom: 20px;
-	font-weight: lighter;
 }
 
