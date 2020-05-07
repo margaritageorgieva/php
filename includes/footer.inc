@@ -20,9 +20,10 @@ print'
 			<a href="#"><i class="fab fa-instagram"></i></a>
 				
 		</div>	
-
-		<p>Copyright © 2019 Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</p>					
+			<!-- polzvame date("Y") za da pokajem tekushtata godina -->
+		<div id="copyright">Copyright © '.date("Y").' Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</div>					
 	</footer>
 </body>
-</html>'
+</html>';
+$mysqli->close(); //krai na vruzkata s bazata danni
 ?>

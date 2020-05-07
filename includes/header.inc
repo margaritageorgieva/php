@@ -21,29 +21,24 @@ print'
 
 			<nav>
 				
-				<ul>
-					<li class="active" > <a href="#">Начало</a></li>
-					<li> <a href="#">Стекове</a></li>
-					<li> <a href="#">Бургери</a></li>
-					<li> <a href="#">Салати</a></li>
-					<li> <a href="#">Напитки</a></li>
-					<li> <a href="#">Предястия</a></li>
-					<li> <a href="#">Десерти</a></li>
+				<ul id="main-nav-ul">
+					<li class="active main-nav-ul-li" > <a href=".">Начало</a></li>
+					
 				</ul>
 			</nav>
 ';	
 			// Проверка за логнат администратор. Сесиите се генерират при логване от файла login.php
     		if(!isset($_SESSION['person_type'])){
 				// Ако потребителя не е логнат извеждаме бутон ВХОД
-				print '<span style="padding-left:800px;"><a href="login.php" class="top_menu_a">Вход</a></span>'; 				
+				print '<span style="float:right; font-size:14pt; margin-top:-2rem;color:white; padding-right:1rem;"><a href="login.php" class="top_menu_a">Вход</a></span>'; 				
 			} else {
 			// Aко е администратор ще има достъп за промяна на данни на животни. 
 			// Извеждме бутони ЖИВОТНИ, НОВО ЖИВОТНО и ИЗХОД
 				if($_SESSION['person_type']==1){	
-					print '<a href="animals_edit.php" class="top_menu_a">Животни</a>
-						   <a href="animal_edit.php" class="top_menu_a">Ново животно</a>';						
+					print '<a href="editProducts.php" class="active main-nav-ul-li">Продукти</a>
+						   <a href="editAproduct.php" class="active main-nav-ul-li">Нов продукт</a>';						
 				}
-				print' <span style="padding-left:570px;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
+				print' <span style="float:right; font-size:14pt; margin-top:-2rem;color:white;  padding-right:1rem;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
 			}		
 			
 

@@ -1,6 +1,6 @@
 
 img{max-width:100%;}
-*{
+* {
 	padding: 0;
 	margin: 0;
 	color: inherit;
@@ -31,7 +31,7 @@ div.lenta img {
 	width: 14%;
 }
 
-nav ul{
+#main-nav-ul{
 	width: 100%;
 	margin-top: 50px;
 	margin-right: 0px;
@@ -39,7 +39,7 @@ nav ul{
 	
 }
 
-nav ul li{
+.main-nav-ul-li{
 	display: inline-block;
 	color: #FFF;
 	margin: auto 20px ;
@@ -155,10 +155,11 @@ footer div{
 	transform: scale(1.1);
 	color: #88ff4d;
 }
-footer p{
+#copyright{
+	display: block;
 	text-align: center;
 	font-size: 13px;
-	margin-top: 10px;
+	margin: auto;
 	padding-bottom: 20px;
 	font-weight: lighter;
 }
