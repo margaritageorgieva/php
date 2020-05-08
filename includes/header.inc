@@ -40,8 +40,8 @@ print'
 			}
 			$result = $mysqli->query("SELECT * FROM food_types");
 			while($row = $result->fetch_assoc()){
-				print'<li class="main-nav-ul-li><a href="animals.php?kid='.$row['food_type_id'].'" 
-					">'.htmlspecialchars(stripslashes($row['type'])).'</a></li>';
+				print'<li class="main-nav-ul-li"><a href="animals.php?kid='.$row['food_type_id'].'" 
+					>'.htmlspecialchars(stripslashes($row['type'])).'</a></li>';
 			}
 
 '		
