@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 09:33 PM
+-- Generation Time: May 08, 2020 at 02:41 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.32
 
@@ -32,6 +32,13 @@ CREATE TABLE `food_types` (
   `food_type_id` int(10) UNSIGNED NOT NULL COMMENT 'ПК',
   `type` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT 'Вид продукт'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `food_types`
+--
+
+INSERT INTO `food_types` (`food_type_id`, `type`) VALUES
+(1, 'Стекове');
 
 -- --------------------------------------------------------
 
@@ -62,7 +69,7 @@ INSERT INTO `people` (`person_id`, `username`, `person_type`, `pass`, `name`) VA
 
 CREATE TABLE `products` (
   `product_id` int(10) UNSIGNED NOT NULL COMMENT 'ПК',
-  `product_type_id` int(10) UNSIGNED NOT NULL COMMENT 'ВК към таблицата с вид продукти',
+  `food_type_id` int(10) UNSIGNED NOT NULL COMMENT 'ВК към вид храна',
   `name` varchar(64) CHARACTER SET utf8 NOT NULL COMMENT 'Име на продукт',
   `weight` smallint(6) NOT NULL COMMENT 'Грамаж',
   `price` float DEFAULT NULL COMMENT 'Цена',
@@ -71,8 +78,22 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `food_type_id`, `name`, `weight`, `price`, `info`, `picture`) VALUES
+(11, 1, 'нещо', 234, 2, 'нещо', ''),
+(21, 1, 'нещо', 234, 2, 'нещо', '');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `food_types`
+--
+ALTER TABLE `food_types`
+  ADD PRIMARY KEY (`food_type_id`);
 
 --
 -- Indexes for table `people`
@@ -86,7 +107,17 @@ ALTER TABLE `people`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`),
-  ADD UNIQUE KEY `product_type_id` (`product_type_id`);
+  ADD KEY `food_type_id` (`food_type_id`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`food_type_id`) REFERENCES `food_types` (`food_type_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
