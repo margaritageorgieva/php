@@ -7,8 +7,6 @@ img{max-width:100%;}
 	list-style: none;
 	text-decoration: none;
 	font-family: arial;
-	
-	
 }
 
 header{
@@ -43,12 +41,7 @@ div.lenta img {
 	display: inline-block;
 	color: #FFF;
 	margin: auto 20px ;
-<<<<<<< HEAD
 	font-size: 20px;
-	border-radius: 2px solid red;
-=======
-	font-size: 28px;
->>>>>>> 7b941b4b144dae6203f0db8663461f276207ef3c
 	list-style-position:inside;	
 
 }
@@ -160,13 +153,7 @@ footer div{
 	transform: scale(1.1);
 	color: #88ff4d;
 }
-<<<<<<< HEAD
-footer #copyright{
-	display: block;
-	margin:auto;
-	width: 80%;
-	text-align: center;
-=======
+
 #copyright{
 	display: block;
 	text-align: center;
@@ -174,10 +161,4 @@ footer #copyright{
 	margin: auto;
 	padding-bottom: 20px;
 	font-weight: lighter;
->>>>>>> 3ac65736889a74eddf800a1610f8e62a04df9d84
-}
-
-body{
-	
-	background-color: rgb(6,11,15);
 }

@@ -20,13 +20,8 @@ print'
 			<a href="#"><i class="fab fa-instagram"></i></a>
 				
 		</div>	
-<<<<<<< HEAD
-
-		<div id="copyright">	Copyright © 2020 Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</div>						
-=======
 			<!-- polzvame date("Y") za da pokajem tekushtata godina -->
 		<div id="copyright">Copyright © '.date("Y").' Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</div>					
->>>>>>> 3ac65736889a74eddf800a1610f8e62a04df9d84
 	</footer>
 </body>
 </html>';
