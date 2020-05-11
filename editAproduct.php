@@ -38,7 +38,7 @@ require 'includes/init.inc';
 					." price= ".($price?"'".$price."'":"NULL").", "
 					." picture= ".($picture?"'".$picture."'":"NULL").", "
 					." info= ".($info?"'".$info."'":"NULL")
-					." WHERE product_id=".$id." AND product_id>5";
+					." WHERE product_id=".$id." AND product_id>4";
   		} else { // sustavq se INSERT zaqvka
 			$query = "INSERT INTO food(name, food_type_id, weight, price, picture, info) VALUES ("
 					.($name?"'".$name."'":"NULL").", "
@@ -77,9 +77,9 @@ require 'includes/init.inc';
 
 require 'includes/header.inc';
 
-// proverka za korekto $id i zabrana za redaktirane na purvite 5 zapisa	
-if($id>=1 && $id<=5){
-	print'<div style="color:red; margin-top:20px;">(Само в online-версията, за първите 5 животни e забраненa операциията UPDATE.)</div>';
+// proverka za korekto $id i zabrana za redaktirane na purvite 4 zapisa	
+if($id>=1 && $id<=4){
+	print'<div style="color:red; margin-top:20px;">(Само в online-версията, за първите 4 животни e забраненa операциията UPDATE.)</div>';
 } 
     
     if($errorMessage){
