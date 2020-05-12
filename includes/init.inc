@@ -9,7 +9,7 @@ $mysqli = new mysqli('localhost', 'root', '', 'food');
 $mysqli->set_charset('utf8');
 
  //snimkite se add-vat v $animal_pictires_dir
- $food_pictures_dir = 'images/foodpics/'; //direktoriq za snimkite
+ $food_pictures_dir = './images/foodpics/'; //direktoriq za snimkite
  // za vseki produkt - snimka s max-width: 180px 
  // +ime kato na osn.snimka, zaedno s: $food_pictures_small_prefix. 
 $food_pictures_small_prefix = 'small_';

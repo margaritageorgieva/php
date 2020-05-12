@@ -1,12 +1,14 @@
-
-img{max-width:100%;}
 * {
 	padding: 0;
 	margin: 0;
-	color: inherit;
+	color: #d4d4d4;
 	list-style: none;
 	text-decoration: none;
 	font-family: arial;
+	
+}
+body{
+	background-color: rgb(6,11,15);
 }
 
 header{
@@ -76,6 +78,34 @@ header p{
 
 /* Svurshva headera */
 
+#img-small, #more-info{
+	cursor: pointer;
+	
+}
+.more-info{
+	color: green;
+}
+#img-small:hover {
+	border-bottom: 1px dashed red;
+	border-top: 1px dashed red;
+	transition: transform .95s;
+	transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+	margin: 0.5rem;
+ }
+#img-small {
+    width: 300px;
+    height: 250px;
+	padding: 0.5rem;
+}
+#img-big{
+	
+}
+
+#table-products{
+	margin: 10vh auto;
+}
+
+
 section{
 	background-color: rgb(6,11,15);
 	width: 100%;
@@ -110,6 +140,7 @@ hr{
 article:hover{
 	transform: scale(1.05);
 }
+
 
  /*Footer*/
 

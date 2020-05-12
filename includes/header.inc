@@ -38,16 +38,17 @@ print'
 				}
 				print' <span style="float:right; font-size:14pt; margin-top:-2rem;color:white;  padding-right:1rem;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
 			}
+			'		
+			</ul>
+		</nav>
+';
 			$result = $mysqli->query("SELECT * FROM food_types");
 			while($row = $result->fetch_assoc()){
-				print'<li class="main-nav-ul-li"><a href="animals.php?kid='.$row['food_type_id'].'" 
+				print'<li class="main-nav-ul-li"><a href="productS.php?kid='.$row['food_type_id'].'" 
 					>'.htmlspecialchars(stripslashes($row['type'])).'</a></li>';
 			}
 
-'		
-			</ul>
-		</nav>
-'
+
 	//do tuk prikluchva header-a
 	
 ?>

@@ -8,23 +8,26 @@ $kid=1;
 require 'includes/header.inc'; 
 //osnovna info v stranicata
 // zaqvka za izvejdane na poslednite 3 vuvedeni produkta, svurzvame gi s JOIN
-   $query = "SELECT food.*, food_types.type FROM food 
-             JOIN food_types ON food.food_type_id=food_types.food_type_id "
-  		     .($kid?" WHERE food.food_type_id=".$kid:"")." ORDER BY product_id DESC LIMIT 3";
+   $query = "SELECT * ,food_types.type FROM products JOIN food_types ON products.food_type_id=food_types.food_type_id"; //tova da go opravq i v drugite stranici
   $result = $mysqli->query($query);
-  $num_results = $result->num_rows;
+  $num_results = 0;
+  //var_dump($mysqli->error); // dava opisanie kude greshim
+  
+  if($result != NULL){
+	$num_results = $result->num_rows;
+  }
 // ako ima vurnat result
   if($num_results>0){
-	print'<table class="table-view"><tr>';
+	print'<table id="table-products"><tr>';
     $j=0;
     while($row = $result->fetch_assoc()){
 	print'<td>';
 		    $object_title = htmlspecialchars(stripslashes($row['name'].($row['type']?', '.$row['type']:'')));
-			$small_pic = $food_pictures_dir.$food_pictures_small_prefix.$row['picture'];
+			$small_pic = $row['picture'];
 			$small_pic_exists = file_exists($small_pic); // dali ima snimka
     print'
         <a href="product.php?id='.$row['product_id'].'">
-        	<img class="img-product" src="'.$small_pic.'" alt="'.$object_title.'" title="'.$object_title.'">
+        	<img id="img-small" class="img-product" src=".'.$small_pic.'" alt="'.$object_title.'" title="'.$object_title.'">
         </a>              
         <h2 class="product-name">'.htmlspecialchars(stripslashes($row['name'])).'</h2>';
             if($row["type"]){

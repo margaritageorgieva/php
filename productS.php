@@ -4,10 +4,12 @@ require 'includes/init.inc';
 $link_text = '';
 $kid =  (int)$_REQUEST['kid']; // zashtita - preobrazuvane do cqlo chislo
 if($kid) { // ako ima zadaden parametur
+	var_dump($kid);
 	$query = "SELECT * FROM food_types WHERE food_type_id=".$kid; 
 	$result = $mysqli->query($query);
 	$row = $result->fetch_assoc();
 	$link_text = htmlspecialchars(stripcslashes($row['type']));
+
 }
 // konfigurirane na promenlivata $page_title
 $page_title = $link_text.' - Steak House';
@@ -16,12 +18,15 @@ require 'includes/header.inc';
 
 print'<h1>'.$link_text.'</h1>';
 // zaqvka za izvlichane na produktite ot opredelen vid
-  $query = "SELECT food.*, food_types.type FROM food "
-  		." JOIN food_types ON food.food_type_id=food_types.food_type_id "
+  $query = "SELECT * ,food_types.type FROM products JOIN food_types ON products.food_type_id=food_types.food_type_id"
   		.($kid?" WHERE food.food_type_id=".$kid:"")." ORDER BY product_id ASC";
   $result = $mysqli->query($query);
-  $num_results = $result->num_rows;
-  if($num_results>0){
+  $num_results = 0;
+  //var_dump($mysqli->error); // dava opisanie kude greshim
+  
+  if($result != NULL){
+	$num_results = $result->num_rows;
+  }  if($num_results>0){
 	print'<table class="table-view"><tr>';
     $j=0;
     while($row = $result->fetch_assoc()){
@@ -39,7 +44,7 @@ print'<h1>'.$link_text.'</h1>';
         if($row["price"]){
            	print'<div class="product-price">'.$row["price"].' лв.</div>';
         }
-        print'<a href="product.php?id='.$row["product_id"].'" class="more-info">Повече информация</a>
+        print'<a href="product.php?id='.$row["product_id"].'" id="more-info">Повече информация</a>
     </td>';
 	$i=0;
 	  if($j==2)
