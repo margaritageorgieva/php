@@ -20,9 +20,10 @@ require 'includes/header.inc';
 // izvejdame infoto za produkta
 print'	
 <table class="product-info-table">
-	<tr><td>&nbsp;</td></tr>
+	
 	<tr>
 		<td>
+		
             <h1>'.htmlspecialchars(stripslashes($row_product['name'])).'</h1>';
             if($row_product["type"]){
                 print'<div>Вид: '.htmlspecialchars(stripslashes($row_product["type"])).'</div>';
@@ -36,18 +37,20 @@ print'
         	if($row_product["info"]){
            		print'<div>Описание: '.htmlspecialchars(stripslashes($row_product["info"])).'</div>';
         	}     
-        '	
+        '	 
 		</td>
+	
+	
 	</tr>
-	<tr><td>&nbsp;</td></tr>
-	<tr>
 		<td>';
 			   $object_title = htmlspecialchars(stripslashes($row_product['name'].($row_product['food_type_id']?', '.$row_product['food_type_id']:'')));
 			   $pic = $row_product['picture'];
 			   $pic_exists = file_exists($pic); // dali sushtestvuva snimka
 			print'<img id="img-big" src=".'.$pic.'" alt="'.$object_title.'" title="'.$object_title.'">			
 		</td>
+
 	</tr>
+	
 </table>';
 require 'includes/footer.inc'; 
  ?>

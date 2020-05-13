@@ -28,7 +28,7 @@ print'
 			// Проверка за логнат администратор. Сесиите се генерират при логване от файла login.php
     		if(!isset($_SESSION['person_type'])){
 				// Ако потребителя не е логнат извеждаме бутон ВХОД
-				print '<span style="float:right; font-size:14pt; margin-top:-2rem;color:white; padding-right:1rem;"><a href="login.php" class="top_menu_a">Вход</a></span>'; 				
+				print '<span style="float:right; font-size:15pt;color:white; padding-right:2rem;"><a href="login.php" class="top_menu_a">Вход</a></span>'; 				
 			} else {
 			// Aко е администратор ще има достъп за промяна на данни на животни. 
 			// Извеждме бутони ЖИВОТНИ, НОВО ЖИВОТНО и ИЗХОД
@@ -36,7 +36,7 @@ print'
 					print '<li class="main-nav-ul-li"><a href="editProducts.php">Продукти</a></li>
 							<li class="main-nav-ul-li"><a href="editAproduct.php">Нов продукт</a></li>';						
 				}
-				print' <span style="float:right; font-size:14pt; margin-top:-2rem;color:white;  padding-right:1rem;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
+				print' <span  style="float:right; font-size:15pt;color:white; padding-right:2rem;"><a href="logout.php" class="top_menu_a">Изход</a></span>';
 			}
 			'		
 			</ul>

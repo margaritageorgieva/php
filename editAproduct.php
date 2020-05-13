@@ -134,7 +134,7 @@ if($id>=1 && $id<=4){
 	        <textarea name="info" id="info">'.htmlspecialchars(stripslashes($info)).'</textarea>
 	    </div>
 	    <div class="form-row">
-	        <input type="submit" name="submit" value="Запис">
+	        <input type="submit" name="submit" value="Запис" >
 	    </div>    
 	</form>';
 	} else {

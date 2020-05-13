@@ -2,7 +2,7 @@
 print'
 
 <footer>
-
+<hr>
 		<div id="Opening-hours"> 
 				Opening Hours <br>
 				Monday - Friday : 08.00 am - 10.00 pm<br>
@@ -21,7 +21,7 @@ print'
 				
 		</div>	
 			<!-- polzvame date("Y") za da pokajem tekushtata godina -->
-		<div id="copyright">Copyright © '.date("Y").' Margarita Georgieva & Stoyanka Dancheva. <br> All rights reserved.</div>					
+		<div id="copyright">Copyright © '.date("Y").' Margarita Georgieva & Stoyanka Dancheva.  <br> All rights reserved.</div>					
 	</footer>
 </body>
 </html>';

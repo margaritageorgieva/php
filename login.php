@@ -31,15 +31,15 @@ if($errorMessage!=NULL){
 print'<form method="post" name="f" action="'.$_SERVER['PHP_SELF'].'" class="form">
 <div class="form-title">Вход</div>
 <div class="form-row">
-    <label for="usernameid">Потребителско име</label>
+    <label for="usernameid">Потребителско име</label> <br>
     <input type="text" maxlength="16" name="username" id="usernameid" value="">
 </div>
 <div class="form-row">
-    <label for="passid">Парола</label>
+    <label for="passid">Парола</label> <br>
     <input type="password" maxlength="16" name="pass" id="passid" value="">
 </div>
-<div class="form-row">
-    <input type="submit" name="submit" value="Вход">
+<div class="form-row" >
+    <input type="submit" name="submit" value="Вход" id = "button">
 </div>    
 </form>
 </div>';
