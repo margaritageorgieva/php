@@ -4,7 +4,7 @@
 	color: #d4d4d4;
 	list-style: none;
 	text-decoration: none;
-	font-family: arial;
+	font-family: arial, sans-serif;
 	
 }
 body{
@@ -13,11 +13,10 @@ body{
 
 header{
 	width: 100%;
-	height: 300px;
+	height: 370px;
 	background-color:black;
 	background-size: cover;
 	background-position: bottom;
-	border-bottom: 2px solid white;
 	
 }
 div.lenta{
@@ -33,20 +32,19 @@ div.lenta img {
 }
 
 #main-nav-ul{
-	width: 100%;
 	margin-top: 40px;
-	margin-right: 0px;	
+	margin-left: 1rem;	
 }
 
 .main-nav-ul-li{
 	display: inline-block;
 	color: #FFF;
 	margin: auto 20px ;
-	font-size: 20px;
+	font-size: 18pt;
 	list-style-position:inside;	
 }
 
-nav ul li.active, nav ul li:hover{
+nav ul li:hover{
 	border-bottom: 2px solid grey;
 	padding-bottom: 8px;
 	margin-left:30px;
@@ -54,10 +52,14 @@ nav ul li.active, nav ul li:hover{
 
 /* Svurshva headera */
 
-#table-products{
+.table-products,.table-view,.table-list{
 	margin: 10vh auto;
 }
-#img-small{
+.table-list td{
+	padding: 1rem;
+	text-align: center;
+}
+#img-small,.img-product{
 	cursor: pointer;
 	margin-right: 40px;	
 }
@@ -67,31 +69,87 @@ nav ul li.active, nav ul li:hover{
 .more-info{
 	color: #88ff4d;	
 }
-#img-small:hover {
+#img-small:hover, .img-product:hover {
 	transition: transform .30s;
 	transform: scale(1.05); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
  }
-#img-small {
+#img-small,.img-product {
     width: 300px;
     height: 250px;
 	padding: 0.5rem;
 }
 
 /* Product */
-#img-big{
-	
+.infoBlock{
+	margin: 3rem;
+	color: chartreuse;
+	font-style: italic;
 }
-
+.errorBlock{
+	margin: 3rem;
+	color: orangered;
+	font-style: italic;
+}
+.YesCancel{
+	border-radius: 2px;
+	margin-left: 0.3rem;
+}
 .product-info-table{
-	margin:10vh auto 5vh auto;
-	
+	margin:10vh auto 5vh auto;	
 }
 
 .product-info-table h1{
-	color: #88ff4d;
+	color: chartreuse;
 	margin-bottom: 8px;
 }
 
+/*productS*/
+#h1-sort, #h1-edit, #h1-new{
+	text-align: center;
+	font-size: 32pt;
+	margin: 5rem 0;
+	text-shadow: 3px 5px 5px rgb(68, 128, 83);
+}
+
+/*Edit a product*/
+label{
+	font: 1.2rem sans-serif;
+	margin-right: 1rem;
+}
+input,option,textarea,form,select{
+	color: black;
+	padding: 5px;
+	margin-top: 0.5rem;
+}
+
+.form-row{
+	margin: 1.2rem;
+	text-align: left;
+}
+.span-png{
+	font-size: 10pt;
+}
+.btn-submit{
+	padding: 0.2rem 1rem;
+	font-weight: 700;
+	transition: 1s;
+}
+.btn-submit:hover{
+	cursor: pointer;
+	padding: 0.2rem 1.4rem;
+	background-color: rgb(205, 255, 226);
+}
+
+/* editProducts*/
+.table-list th{
+	font-size: 20pt;
+}
+.table-list td, .table-list th{
+	border: 1px solid gray;
+	padding: 1rem;
+}
+.table-list tr:nth-child(even){background-color: #444444;}
+.table-list td:hover {background-color: rgb(46, 46, 46);}
 
 
 /*Login*/

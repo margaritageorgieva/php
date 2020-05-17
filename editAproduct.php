@@ -25,13 +25,14 @@ require 'includes/init.inc';
 	$price = $mysqli->escape_string((int)trim($_POST['price']));
 	$info = $mysqli->escape_string(trim($_POST['info']));
 	$picture = $mysqli->escape_string(trim($_POST['picture']));
+	
 
-    if(!$_POST['name'] || !$_POST['picture']){
+    if(!$_POST['name'] || !$_POST['food_type_id']){
     	$errorMessage = 'Не сте задали задължителните полета.';
 	} else {	
-		$picture=$picture.'.png';
+		$picture=$picture.'.png'; //ne vzima snimkata
   		if($id){ // sustavq se UPDATE zaqvka
-  			$query = "UPDATE food SET "
+  			$query = "UPDATE products SET "
 					." name= ".($name?"'".$name."'":"NULL").", "
 					." food_type_id= ".($food_type_id?"'".$food_type_id."'":"NULL").", "
 					." weight= ".($weight?"'".$weight."'":"NULL").", "
@@ -40,7 +41,7 @@ require 'includes/init.inc';
 					." info= ".($info?"'".$info."'":"NULL")
 					." WHERE product_id=".$id." AND product_id>4";
   		} else { // sustavq se INSERT zaqvka
-			$query = "INSERT INTO food(name, food_type_id, weight, price, picture, info) VALUES ("
+			$query = "INSERT INTO products(name, food_type_id, weight, price, picture, info) VALUES ("
 					.($name?"'".$name."'":"NULL").", "
 					.($food_type_id?"'".$food_type_id."'":"NULL").", "
 					.($weight?"'".$weight."'":"NULL").", "
@@ -60,7 +61,7 @@ require 'includes/init.inc';
 	// ako ne e podadena promenliva ot HTML formata - ne pravi nishto
   } 
   	if($id) { // prochita se product za redaktirane ako ima $id
-	  $query = "SELECT * FROM food WHERE product_id=".$id;
+	  $query = "SELECT * FROM products WHERE product_id=".$id;
 	  $result = $mysqli->query($query);
 	  if($row = $result->fetch_assoc()){
 	  	$operation_type = 'Редактиране на продукт';
@@ -90,51 +91,51 @@ if($id>=1 && $id<=4){
 	} 	
 	// stoinostite na poletata ot formata sa vzeti ot BD ili ot posledno zadadenite pri poluchena greshka pri zapis 
 	if($_POST || $_REQUEST){  
-	print'<form method="post" name="f" action="'.$_SERVER['PHP_SELF'].'" class="form">
+	print'<form method="post" name="f" action="'.$_SERVER['PHP_SELF'].'" id="form">
 		<input type="hidden" name="id" value="'.$id.'">
 		<input type="hidden" name="picture" value="'.$picture.'">
 	    <div class="form-title">'.$operation_type.'</div>'; 
-	       $small_pic = $food_pictures_dir.$food_pictures_small_prefix.$picture;
-		   $small_pic_exists = file_exists($small_pic); // dali ima snimka
-		   print $small_pic_exists?'<div class="form-row" style="text-align:center"><img src="'.$small_pic.'" title="" alt=""></div>':'';
+	       $pic = $picture;
+		   $pic_exists = file_exists($pic); // dali ima snimka
+		   print $pic_exists?'<div class="form-row" style="text-align:center"><img src=".'.$pic.'" title="" alt="" /></div>':'';
 	print'<div class="form-row">
 	        <label for="name">* Име</label>
-	        <input type="text" maxlength="64" name="name" id="name" value="'.htmlspecialchars(stripslashes($name)).'">
+	        <input type="text" maxlength="64" name="name" class="product-input-details id="name" value="'.htmlspecialchars(stripslashes($name)).'">
 	    </div>
 	    <div class="form-row">
 	        <label for="food_type_id">* Вид</label>
-	        <select name="food_type_id" id="food_type_id">';
+	        <select name="food_type_id" class="product-input-details" id="food_type_id">';
 //pokazvane na spisuk i <option> elementi
-		          $query = 'SELECT * FROM food_types ORDER BY type';
+		          $query = 'SELECT * FROM food_types ORDER BY food_type_id';
 		          $result = $mysqli->query($query);
 		          while($row = $result->fetch_assoc()){	
 					$sel=''; 
 					if($row['food_type_id']==$food_type_id){$sel=' selected';}
-		             print'<option value="'.$row['food_type_id'].'"'.$sel.'>'.htmlspecialchars(stripslashes($row["type"])).'</option>';
+		             print'<option class="product-input-details value="'.$row['food_type_id'].'"'.$sel.'>'.htmlspecialchars(stripslashes($row["type"])).'</option>';
 		          }
 	      	print'</select>
 	    </div>
 	    <div class="form-row">
 	        <label for="weight">Грамаж</label>
-	        <input type="text" maxlength="32" name="weight" id="weight" value="'.htmlspecialchars(stripslashes($weight)).'">
+	        <input type="text" maxlength="5" placeholder="Цяло число" name="weight" id="weight" value="'.htmlspecialchars(stripslashes($weight)).'"> гр.
 	    </div>
 	    <div class="form-row">
 	        <label for="price">Цена</label>
-	        <input type="text" maxlength="4" name="price" id="price" value="'.htmlspecialchars(stripslashes($price)).'"> лв.
+	        <input type="text" maxlength="10" placeholder="Може да бъде с плаваща запетая" name="price" id="price" value="'.htmlspecialchars(stripslashes($price)).'"> лв.
 	    </div>';
 		$picture=str_replace('.png','',$picture);
 		print'<div class="form-row">
-	        <label for="picture">* Снимка</label>
-	        <input type="text" maxlength="64" name="picture" id="picture" value="'.htmlspecialchars(stripslashes($picture)).'"> .png
-	    </div>		
+			<label for="img">Снимка: <span class="span-png">(.png)</span></label><br />
+			<input style="color:white;" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
+		</div>		
 	    <div class="form-row">	    
 	    	<label for="info">Описание</label>   
 	    </div>
 	    <div class="form-row">
-	        <textarea name="info" id="info">'.htmlspecialchars(stripslashes($info)).'</textarea>
+	        <textarea name="info" rows="4" cols="35" id="info">'.htmlspecialchars(stripslashes($info)).'</textarea>
 	    </div>
 	    <div class="form-row">
-	        <input type="submit" name="submit" value="Запис" >
+	        <input type="submit" class="btn-submit" name="submit" value="Запис" >
 	    </div>    
 	</form>';
 	} else {
@@ -143,7 +144,7 @@ if($id>=1 && $id<=4){
 		<input type="hidden" name="id" value="">
 	    <div class="form-title">'.$operation_type.'</div>
 	    <div class="form-row">
-	        <label for="name">* Име</label>
+	        <label for="name">* Име</label><br />
 	        <input type="text" maxlength="64" name="name" id="name" value="">
 	    </div>
 	    <div class="form-row">
@@ -158,25 +159,24 @@ if($id>=1 && $id<=4){
 	      	print'</select>
 	    </div>
 	    <div class="form-row">
-	        <label for="weight">Грамаж</label>
-	        <input type="text" maxlength="32" name="weight" id="weight" value="">
+	        <label for="weight">Грамаж</label><br />
+	        <input type="text" placeholder="Цяло число" maxlength="5" name="weight" id="weight" value="">
 	    </div>
 	    <div class="form-row">
-	        <label for="price">Цена</label>
-	        <input type="text" maxlength="4" name="price" id="price" value=""> лв.
+	        <label for="price">Цена</label><br />
+	        <input type="text" placeholder="Цяло/Реално число" maxlength="10" name="price" id="price" value=""> лв.
 	    </div>
 		<div class="form-row">
-	        <label for="picture">* Снимка</label>
-	        <input type="text" maxlength="64" name="picture" id="picture" value=""> .png
-	    </div>
+			<label for="img">Снимка: <span class="span-png">(.png)</span></label><br />
+			<input style="color:white;" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
+	    
+		</div>
 	    <div class="form-row">	    
-	    	<label for="info">Описание</label>   
+	    	<label for="info">Описание</label> <br />
+	        <textarea name="info" rows="4" cols="35" id="info"></textarea>
 	    </div>
 	    <div class="form-row">
-	        <textarea name="info" id="info"></textarea>
-	    </div>
-	    <div class="form-row">
-	        <input type="submit" name="submit" value="Запис">
+	        <input class="btn-submit" type="submit" name="submit" value="Запис">
 	    </div>    
 		</form>';
 	}

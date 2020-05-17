@@ -18,14 +18,14 @@ require 'includes/header.inc';
   }
 // ako ima vurnat result
   if($num_results>0){
-	print'<table id="table-products"><tr>';
+	print'<table class="table-products"><tr>';
     $j=0;
     while($row = $result->fetch_assoc()){
 	print'<td>';
 		    $object_title = htmlspecialchars(stripslashes($row['name'].($row['type']?', '.$row['type']:'')));
 			$small_pic = $row['picture'];
 			$small_pic_exists = file_exists($small_pic); // dali ima snimka
-    print'
+	print'
         <a href="product.php?id='.$row['product_id'].'">
         	<img id="img-small" class="img-product" src=".'.$small_pic.'" alt="'.$object_title.'" title="'.$object_title.'">
         </a>              

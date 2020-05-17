@@ -25,7 +25,7 @@ print'
 		<td>
 		
             <h1>'.htmlspecialchars(stripslashes($row_product['name'])).'</h1>';
-            if($row_product["type"]){
+            if($row_product["food_type_id"]){
                 print'<div>Вид: '.htmlspecialchars(stripslashes($row_product["type"])).'</div>';
             }
 			if($row_product["weight"]){
