@@ -6,6 +6,7 @@ print'
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+	<link rel="icon" href="./images/icons/icon.png" type="image/gif">
 	<link rel="stylesheet" type="text/css" href="Style.css">
 	<title>'.$page_title.'</title>
 <script src="https://kit.fontawesome.com/acc09d4eff.js" crossorigin="anonymous"></script>

@@ -39,7 +39,7 @@ print'<form method="post" name="f" action="'.$_SERVER['PHP_SELF'].'" class="form
     <input type="password" maxlength="16" name="pass" id="passid" value="">
 </div>
 <div class="form-row" >
-    <input type="submit" name="submit" value="Вход" id = "button">
+    <input type="submit" class="btn-submit" name="submit" value="Вход" id = "button">
 </div>    
 </form>
 </div>';

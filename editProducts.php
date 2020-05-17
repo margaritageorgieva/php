@@ -39,7 +39,7 @@ $row_product = $result->fetch_assoc();
 
 // izvejdane na suobshtenie za potvurjdenie na iztrivaneto
  if ($id!=NULL) { 
-		print'<div class="errorBlock">
+		print'<div style="margin-left:35vw; text-align:center;" class="errorBlock">
 			<table><tr>
 			 <td><b style=" color: red; margin-right: 1rem;">Наистина ли искате да изтриете продукта?</b></td> 
 			 <form method="post" name="conf" action="'.$_SERVER['PHP_SELF'].'" class="form">
@@ -68,12 +68,12 @@ if($result->num_rows>0){
 		$pic_exists = file_exists($pic);
 		$name = htmlspecialchars(stripcslashes($row['name']));		
 		print'<tr>
-			<td><a href="editAproduct.php?id='.$row['product_id'].'"><img src="images/icons/edit.gif" alt="Редактиране" title="Редактиране">Редактиране</a></td>
+			<td><a href="editAproduct.php?id='.$row['product_id'].'"><img src="images/icons/edit.png" alt="Редактиране" title="Редактиране"><span class="span-icon">Редактиране</span></a></td>
 			<td>';
 			print'<img src=".'.$pic.'" title="'.$name.'" style="width:200px; height:150px;" alt="'.$name.'">';
 		print'</td> 
 			<td>'.$row['product_id'].'. '.$name.'</td>
-			<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$row['product_id'].'"><img src="images/icons/delete.gif" alt="Изтриване" title="Изтриване">Изтриване</a></td>	
+			<td><a href="'.$_SERVER['PHP_SELF'].'?id='.$row['product_id'].'"><img src="images/icons/delete.png" alt="Изтриване" title="Изтриване"><span class="span-icon">Изтриване</span></a></td>	
 		</tr>'; 
 	}
 	print'</table>';
