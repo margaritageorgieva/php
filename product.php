@@ -26,16 +26,16 @@ print'
 		
             <h1>'.htmlspecialchars(stripslashes($row_product['name'])).'</h1>';
             if($row_product["food_type_id"]){
-                print'<div>Вид: '.htmlspecialchars(stripslashes($row_product["type"])).'</div>';
+                print'<div class="single-prod">Вид: '.htmlspecialchars(stripslashes($row_product["type"])).'</div>';
             }
 			if($row_product["weight"]){
-           		print'<div>Грамаж: '.htmlspecialchars(stripslashes($row_product["weight"])).'гр.</div>';
+           		print'<div class="single-prod">Грамаж: '.htmlspecialchars(stripslashes($row_product["weight"])).'гр.</div>';
            	}
         	if($row_product["price"]){
-           		print'<div>Цена: '.$row_product["price"].' лв.</div>';
+           		print'<div class="single-prod">Цена: '.$row_product["price"].' лв.</div>';
         	}
         	if($row_product["info"]){
-           		print'<div>Описание: '.htmlspecialchars(stripslashes($row_product["info"])).'</div>';
+           		print'<div class="single-prod">Описание: '.htmlspecialchars(stripslashes($row_product["info"])).'</div>';
         	}     
         '	 
 		</td>
@@ -46,7 +46,7 @@ print'
 			   $object_title = htmlspecialchars(stripslashes($row_product['name'].($row_product['food_type_id']?', '.$row_product['food_type_id']:'')));
 			   $pic = $row_product['picture'];
 			   $pic_exists = file_exists($pic); // dali sushtestvuva snimka
-			print'<img id="img-big" src=".'.$pic.'" alt="'.$object_title.'" title="'.$object_title.'">			
+			print'<a href=".'.$pic.'" class="single-prod" target="_blank"><img id="img-big" src=".'.$pic.'" alt="'.$object_title.'" title="'.$object_title.'"></a>			
 		</td>
 
 	</tr>
