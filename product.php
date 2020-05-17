@@ -10,8 +10,6 @@ if($id) { // ako $id e zadaden
     $result = $mysqli->query($query);
 	$row_product = $result->fetch_assoc();
 // config na promenlivata $page_title
-	//$navigation = ' / <a href="productS.php'.($row_product['food_type_id']?'?kid='.$row_product['food_type_id']:'').'">'.htmlspecialchars(stripcslashes($row_product['type'])).'</a>'
-	//		.' / <a href="'.$_SERVER['PHP_SELF'].($id?'?id='.$id:'').'">'.htmlspecialchars(stripcslashes($row_product['name'])).'</a>';
 	$page_title = 'Steak House - '.htmlspecialchars(stripcslashes($row_product['name']));
 }
 

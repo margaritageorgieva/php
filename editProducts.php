@@ -55,7 +55,7 @@ $row_product = $result->fetch_assoc();
 $result = $mysqli->query("SELECT * FROM products");
 // ako ima vurnat result se izvejda info
 if($result->num_rows>0){
-// tablicata s vsichki jivotni
+// tablicata s vsichki produkti
 	print'<table class="table-list">
 		<tr>
 			<th>Редактиране</th><!-- колона за редактиране -->

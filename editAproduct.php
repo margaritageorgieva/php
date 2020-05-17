@@ -30,7 +30,7 @@ require 'includes/init.inc';
     if(!$_POST['name'] || !$_POST['food_type_id']){
     	$errorMessage = 'Не сте задали задължителните полета.';
 	} else {	
-		$picture=$picture.'.png'; //ne vzima snimkata
+		$picture=$food_pictures_dir.$picture; //ne vzima snimkata
   		if($id){ // sustavq se UPDATE zaqvka
   			$query = "UPDATE products SET "
 					." name= ".($name?"'".$name."'":"NULL").", "
@@ -126,7 +126,7 @@ if($id>=1 && $id<=4){
 		$picture=str_replace('.png','',$picture);
 		print'<div class="form-row">
 			<label for="img">Снимка: <span class="span-png">(.png)</span></label><br />
-			<input style="color:white;" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
+			<input style="color:white;" name="picture" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
 		</div>		
 	    <div class="form-row">	    
 	    	<label for="info">Описание</label>   
@@ -168,7 +168,7 @@ if($id>=1 && $id<=4){
 	    </div>
 		<div class="form-row">
 			<label for="img">Снимка: <span class="span-png">(.png)</span></label><br />
-			<input style="color:white;" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
+			<input style="color:white;" name="picture" type="file" id="img" value="'.htmlspecialchars(stripslashes($picture)).'" name="img" accept="image/png">
 	    
 		</div>
 	    <div class="form-row">	    
