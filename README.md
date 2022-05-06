@@ -1,5 +1,5 @@
-PHP Site with a Database.
-It's a restaurant where you can see everything they have have in their menu.
-The admin can Create new, Edit or Delete a product.
-Products are displayed in a simple table with information aboot them: Name, Type, Price and a link for More Information.
-In the More info page you can see a single product of your choice cointaining its Name, Type, Weight, Info and Picture. If you click on the picture it'll open in new tab with it's original size. 
+### 🍽 PHP Restaurant Site with TSQL database
+
+Joint university project, that represents restaurant where you can see everything they have in their menu. There are 2 types of users - regular users who can view everything and an administrator who can edit, delete or create a new product. 
+The products are displayed in a simple table with information about them: Name, Type, Price and link for More information. 
+On the "More information" page you can see all the product information and its picture. If you click on the photo, it will open in a new tab with its original size.
